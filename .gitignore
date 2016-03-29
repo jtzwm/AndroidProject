@@ -45,7 +45,7 @@ proguard/
 
 # IntelliJ IDEA
 .idea
-*.iml
+##*.iml
 *.ipr
 *.iws
 
