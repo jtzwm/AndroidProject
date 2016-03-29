@@ -2,11 +2,17 @@ package com.zhuwm.androidproject;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
+import android.view.View;
+import android.webkit.JsResult;
+import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 public class WebViewActivity extends AppCompatActivity {
+    private static final String TAG = "WebViewActivity";
 
     private WebView webView;
 
@@ -15,29 +21,34 @@ public class WebViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web_view);
 
-        webView= (WebView) findViewById(R.id.webView);
+        webView = (WebView) findViewById(R.id.webView);
+        WebSettings webSettings = webView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+
         webView.loadUrl("http://192.168.3.71:8080/h5test/index.do");
 
-        webView.setWebViewClient(new MyWebViewClinet());
+        webView.setWebChromeClient(new MyWebChromeClient());
+        webView.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (event.getAction() == KeyEvent.ACTION_DOWN) {
+                    if (keyCode == KeyEvent.KEYCODE_BACK && webView.canGoBack()) {
+                        webView.goBack();   //ÂêéÈÄÄ
+                        //webview.goForward();//ÂâçËøõ
+                        return true;    //Â∑≤Â§ÑÁêÜ
+                    }
+                }
+                return false;
+            }
+        });
 
     }
 
-
-    @Override
-    //…Ë÷√ªÿÕÀ
-    //∏≤∏«Activity¿‡µƒonKeyDown(int keyCoder,KeyEvent event)∑Ω∑®
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if ((keyCode == KeyEvent.KEYCODE_BACK) && webView.canGoBack()) {
-            webView.goBack(); //goBack()±Ì æ∑µªÿWebViewµƒ…œ“ª“≥√Ê
-            return true;
-        }
-        return false;
-    }
-
-    private class MyWebViewClinet extends WebViewClient {
+    private class MyWebChromeClient extends WebChromeClient {
         @Override
-        public boolean shouldOverrideUrlLoading(WebView view, String url) {
-            view.loadUrl(url);
+        public boolean onJsAlert(WebView view, String url, String message, JsResult result) {
+            Log.d(TAG, message);
+            result.confirm();
             return true;
         }
     }
