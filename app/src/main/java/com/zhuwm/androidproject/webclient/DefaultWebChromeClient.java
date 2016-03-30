@@ -8,9 +8,9 @@ import android.webkit.WebView;
 
 import com.zhuwm.androidproject.WebViewActivity;
 
-public class MyWebViewClient extends WebChromeClient {
+public class DefaultWebChromeClient extends WebChromeClient {
 
-    public static final String TAG = "MyWebViewClient";
+    public static final String TAG = "DefaultWebChromeClient";
 
     @Override
     public boolean onConsoleMessage(ConsoleMessage cm) {
