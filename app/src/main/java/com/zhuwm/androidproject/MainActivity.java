@@ -2,6 +2,7 @@ package com.zhuwm.androidproject;
 
 import android.app.Activity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,13 +16,23 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Log.d(TAG,"=============main activity");
+        Log.d(TAG, "=============main activity");
         findViewById(R.id.btnNext).setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,WebViewActivity.class));
+                startActivity(new Intent(MainActivity.this, WebViewActivity.class));
 
             }
         });
+
+        findViewById(R.id.btnVideo).setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, VideoSettingActivity.class));
+
+            }
+        });
+
+
     }
 }

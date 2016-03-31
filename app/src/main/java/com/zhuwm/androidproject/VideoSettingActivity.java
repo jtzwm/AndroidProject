@@ -108,6 +108,8 @@ public class VideoSettingActivity extends Activity implements AnyChatBaseEvent {
 
     @Override
     public void OnAnyChatLoginMessage(int dwUserId, int dwErrorCode) {
+        //登录后，返回的事件。从这个方法，能够获得dwUserId.
+        //如果要实现登录后自动进入房间，可以在这里实现。
 
     }
 
@@ -118,11 +120,14 @@ public class VideoSettingActivity extends Activity implements AnyChatBaseEvent {
 
     @Override
     public void OnAnyChatOnlineUserMessage(int dwUserNum, int dwRoomId) {
+        //有用户进入房间后，触发此事件。
+        Log.d(TAG,"=========有用户进入房间，用户号为："+dwUserNum);
 
     }
 
     @Override
     public void OnAnyChatUserAtRoomMessage(int dwUserId, boolean bEnter) {
+
 
     }
 
