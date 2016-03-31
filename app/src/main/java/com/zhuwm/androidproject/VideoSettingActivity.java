@@ -29,19 +29,37 @@ public class VideoSettingActivity extends Activity implements AnyChatBaseEvent {
     protected void onCreate(Bundle savedInstanceState) {
         Log.d(TAG, "==========进入了VideoSettingActivity");
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_video_setting);
 
+        //获取界面输入的服务器信息
         getSetting();
+        //初始化界面、绑定事件
+        initLayout();
+        //初始化AnyChat
         initSDK();
+    }
 
+    private void initLayout() {
         findViewById(R.id.btnConnect).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 connAnyChat();
-                System.out.println("++++++++++++++++     fuck    ++++++++++++++");
+                Log.d(TAG,"============连接服务器成功");
+
 
             }
         });
+
+        findViewById(R.id.btnEnterRoom).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                anyChatSDK.EnterRoom(Integer.parseInt(setting.getRoomID()), "");
+                Log.d(TAG, "============进入房间成功");
+
+            }
+        });
+
     }
 
     private void connAnyChat() {
