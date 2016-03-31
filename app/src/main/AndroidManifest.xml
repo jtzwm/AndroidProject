@@ -23,7 +23,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".WebViewActivity" />
-        <activity android:name=".VideoActivity"></activity>
+        <activity android:name=".VideoActivity" />
+        <activity android:name=".VideoSettingActivity"></activity>
     </application>
 
 </manifest>

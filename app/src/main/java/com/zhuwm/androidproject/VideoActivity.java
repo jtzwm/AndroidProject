@@ -1,9 +1,9 @@
 package com.zhuwm.androidproject;
 
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
 
-public class VideoActivity extends AppCompatActivity {
+public class VideoActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

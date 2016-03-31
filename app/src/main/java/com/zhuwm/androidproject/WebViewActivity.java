@@ -1,27 +1,23 @@
 package com.zhuwm.androidproject;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
 
 import com.zhuwm.androidproject.webclient.DefaultViewClient;
 import com.zhuwm.androidproject.webclient.DefaultWebChromeClient;
-import com.zhuwm.androidproject.webclient.MyJSInterface;
 
-public class WebViewActivity extends AppCompatActivity {
+public class WebViewActivity extends Activity {
     private static final String TAG = "WebViewActivity";
 
     Handler handler = new Handler();
@@ -101,12 +97,8 @@ public class WebViewActivity extends AppCompatActivity {
             handler.post(new Runnable() {
                 public void run() {
                     Log.d(TAG, "+++++++终于进来了");
-                    //startActivity(new Intent(WebViewActivity.this, com.example.helloanychat.MainActivity.class));
-                    Intent intent = new Intent();
-                    PackageManager packageManager = WebViewActivity.this.getPackageManager();
-                    intent = packageManager.getLaunchIntentForPackage("com.example.helloanychat.MainActivity");
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
-                    WebViewActivity.this.startActivity(intent);
+                    startActivity(new Intent(WebViewActivity.this, VideoSettingActivity.class));
+
 
                     //mWebView.loadUrl("javascript:wave()");
                 }
