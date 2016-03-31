@@ -2,6 +2,8 @@ package com.zhuwm.androidproject;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -98,7 +100,14 @@ public class WebViewActivity extends AppCompatActivity {
             System.out.println("======终于进来鸟");
             handler.post(new Runnable() {
                 public void run() {
-                    Log.d(TAG,"+++++++终于进来了");
+                    Log.d(TAG, "+++++++终于进来了");
+                    //startActivity(new Intent(WebViewActivity.this, com.example.helloanychat.MainActivity.class));
+                    Intent intent = new Intent();
+                    PackageManager packageManager = WebViewActivity.this.getPackageManager();
+                    intent = packageManager.getLaunchIntentForPackage("com.example.helloanychat.MainActivity");
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
+                    WebViewActivity.this.startActivity(intent);
+
                     //mWebView.loadUrl("javascript:wave()");
                 }
             });
