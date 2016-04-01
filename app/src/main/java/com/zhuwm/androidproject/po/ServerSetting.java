@@ -9,7 +9,7 @@ public class ServerSetting {
     private String serverAddr;
     private int serverPort;
     private String roomID;
-    private String user;
+    private String userID;
     private String password;
 
     public String getServerAddr() {
@@ -36,12 +36,12 @@ public class ServerSetting {
         this.roomID = roomID;
     }
 
-    public String getUser() {
-        return user;
+    public String getUserID() {
+        return userID;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setUserID(String userID) {
+        this.userID = userID;
     }
 
     public String getPassword() {

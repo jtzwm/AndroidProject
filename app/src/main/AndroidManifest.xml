@@ -24,7 +24,10 @@
         </activity>
         <activity android:name=".WebViewActivity" />
         <activity android:name=".VideoActivity" />
-        <activity android:name=".VideoSettingActivity"></activity>
+        <activity android:name=".VideoSettingActivity" />
+        <activity
+            android:name=".TestActivity"
+            android:label="@string/title_activity_test"></activity>
     </application>
 
 </manifest>
