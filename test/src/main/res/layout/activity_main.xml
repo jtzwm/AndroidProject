@@ -3,39 +3,75 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
     tools:context="com.zhuwm.test.MainActivity">
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1">
+
+        <SurfaceView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center"/>
+
+
+        <LinearLayout
+            android:id="@+id/frame_local_area"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom|right"
+
+            android:orientation="vertical"
+            android:padding="3dip" >
+
+            <SurfaceView
+                android:id="@+id/surface_local"
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_gravity="center"
+                android:layout_weight="1" />
+        </LinearLayout>
+    </FrameLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-        <TextView
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|bottom"
+        android:background="#7f7f7f">
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="50dp"
             android:layout_weight="1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#00ff00"
-            android:text=""/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#00ffff"
-            android:text="长度测试"/>
-        <TextView
-            android:layout_weight="20"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#ff0000"
-            android:text="测试"/>
-        <TextView
-            android:layout_weight="1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#0000ff"
-            android:text=""/>
+            android:text="退出"/>
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#ffffff" />
+        <ImageButton
+            android:layout_width="52dp"
+            android:layout_height="fill_parent"
+            android:src="@drawable/speak_on" />
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#ffffff" />
+
+        <ImageButton
+            android:layout_width="52dp"
+            android:layout_height="fill_parent"
+            android:src="@drawable/camera_on"/>
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#ffffff" />
+
+        <ImageButton
+            android:layout_width="52dp"
+            android:layout_height="fill_parent"
+            android:src="@drawable/switchvideo" />
+
     </LinearLayout>
+
 </LinearLayout>
