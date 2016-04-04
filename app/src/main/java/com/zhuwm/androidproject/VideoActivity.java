@@ -4,11 +4,15 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.SurfaceView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 
 import com.bairuitech.anychat.AnyChatBaseEvent;
 import com.bairuitech.anychat.AnyChatCoreSDK;
@@ -68,14 +72,89 @@ public class VideoActivity extends Activity implements AnyChatBaseEvent {
             anychatSDK.mVideoHelper.SetVideoUser(index, userID);
         }
 
+        mMyView.setZOrderOnTop(true);
+
         anychatSDK.UserCameraControl(userID, 1);
         anychatSDK.UserSpeakControl(userID, 1);
+
+        // 判断是否显示本地摄像头切换图标
+        if (AnyChatCoreSDK
+                .GetSDKOptionInt(AnyChatDefine.BRAC_SO_LOCALVIDEO_CAPDRIVER) == AnyChatDefine.VIDEOCAP_DRIVER_JAVA) {
+            if (AnyChatCoreSDK.mCameraHelper.GetCameraNumber() > 1) {
+                // 默认打开前置摄像头
+                AnyChatCoreSDK.mCameraHelper
+                        .SelectVideoCapture(AnyChatCoreSDK.mCameraHelper.CAMERA_FACING_FRONT);
+            }
+        } else {
+            String[] strVideoCaptures = anychatSDK.EnumVideoCapture();
+            if (strVideoCaptures != null && strVideoCaptures.length > 1) {
+                // 默认打开前置摄像头
+                for (int i = 0; i < strVideoCaptures.length; i++) {
+                    String strDevices = strVideoCaptures[i];
+                    if (strDevices.indexOf("Front") >= 0) {
+                        anychatSDK.SelectVideoCapture(strDevices);
+                        break;
+                    }
+                }
+            }
+        }
+
+        // 根据屏幕方向改变本地surfaceview的宽高比
+        if (this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            adjustLocalVideo(true);
+        } else if (this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+            adjustLocalVideo(false);
+        }
 
 
         anychatSDK.UserCameraControl(-1, 1);// -1表示对本地视频进行控制，打开本地视频
         anychatSDK.UserSpeakControl(-1, 1);// -1表示对本地音频进行控制，打开本地音频
 
 
+    }
+
+
+    //调整本地视频窗口的方法
+    public void adjustLocalVideo(boolean bLandScape) {
+        float width;
+        float height = 0;
+
+        //DisplayMetrics是android提供的，获取分辨率的类
+        DisplayMetrics dMetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(dMetrics);
+        width = (float) dMetrics.widthPixels / 4;
+        LinearLayout layoutLocal = (LinearLayout) this
+                .findViewById(R.id.frame_local_area);
+        FrameLayout.LayoutParams layoutParams = (android.widget.FrameLayout.LayoutParams) layoutLocal
+                .getLayoutParams();
+        if (bLandScape) {
+
+            if (AnyChatCoreSDK
+                    .GetSDKOptionInt(AnyChatDefine.BRAC_SO_LOCALVIDEO_WIDTHCTRL) != 0)
+                height = width
+                        * AnyChatCoreSDK
+                        .GetSDKOptionInt(AnyChatDefine.BRAC_SO_LOCALVIDEO_HEIGHTCTRL)
+                        / AnyChatCoreSDK
+                        .GetSDKOptionInt(AnyChatDefine.BRAC_SO_LOCALVIDEO_WIDTHCTRL)
+                        + 5;
+            else
+                height = (float) 3 / 4 * width + 5;
+        } else {
+
+            if (AnyChatCoreSDK
+                    .GetSDKOptionInt(AnyChatDefine.BRAC_SO_LOCALVIDEO_HEIGHTCTRL) != 0)
+                height = width
+                        * AnyChatCoreSDK
+                        .GetSDKOptionInt(AnyChatDefine.BRAC_SO_LOCALVIDEO_WIDTHCTRL)
+                        / AnyChatCoreSDK
+                        .GetSDKOptionInt(AnyChatDefine.BRAC_SO_LOCALVIDEO_HEIGHTCTRL)
+                        + 5;
+            else
+                height = (float) 4 / 3 * width + 5;
+        }
+        layoutParams.width = (int) width;
+        layoutParams.height = (int) height;
+        layoutLocal.setLayoutParams(layoutParams);
     }
 
 

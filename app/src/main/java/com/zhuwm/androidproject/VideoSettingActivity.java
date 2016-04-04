@@ -62,6 +62,7 @@ public class VideoSettingActivity extends Activity implements AnyChatBaseEvent {
         findViewById(R.id.btnConnect).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                getSetting();
                 connAnyChat();
                 Log.i(TAG, "============连接服务器成功");
 
@@ -72,6 +73,7 @@ public class VideoSettingActivity extends Activity implements AnyChatBaseEvent {
         findViewById(R.id.btnEnterRoom).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                getSetting();
                 anyChatSDK.EnterRoom(Integer.parseInt(setting.getRoomID()), "");
                 Log.i(TAG, "============进入房间成功,房间号为：" + setting.getRoomID());
 
