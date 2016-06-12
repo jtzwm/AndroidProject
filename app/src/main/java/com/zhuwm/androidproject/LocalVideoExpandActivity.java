@@ -117,28 +117,24 @@ public class LocalVideoExpandActivity extends Activity {
 
     public void initData() {
         parent = new ArrayList<String>();
-        parent.add("parent1");
-        parent.add("parent2");
-        parent.add("parent3");
+        parent.add("朱巍明");
+        parent.add("黄瑞庆");
+        parent.add("刘天亮");
 
         map = new HashMap<String, List<String>>();
 
         List<String> list1 = new ArrayList<String>();
-        list1.add("child1-1");
-        list1.add("child1-2");
-        list1.add("child1-3");
+        list1.add("视频长度13秒");
+        list1.add("视频长度13秒");
         map.put("parent1", list1);
 
         List<String> list2 = new ArrayList<String>();
-        list2.add("child2-1");
-        list2.add("child2-2");
-        list2.add("child2-3");
+        list1.add("视频长度23秒");
+        list1.add("视频长度23秒");
         map.put("parent2", list2);
 
         List<String> list3 = new ArrayList<String>();
-        list3.add("child3-1");
-        list3.add("child3-2");
-        list3.add("child3-3");
+        list1.add("视频长度33秒");
         map.put("parent3", list3);
 
     }
