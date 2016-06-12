@@ -113,11 +113,19 @@
         </Button>
 
         <Button
-            android:id="@+id/btnVideo"
+        android:id="@+id/btnVideo"
+        android:layout_width="105dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:text="直接进入视频" >
+    </Button>
+
+        <Button
+            android:id="@+id/btnLocalVideo"
             android:layout_width="105dp"
             android:layout_height="40dp"
             android:layout_gravity="center_horizontal"
-            android:text="直接进入视频" >
+            android:text="离线录制" >
         </Button>
     </LinearLayout>
 
