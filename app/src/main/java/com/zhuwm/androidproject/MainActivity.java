@@ -2,7 +2,6 @@ package com.zhuwm.androidproject;
 
 import android.app.Activity;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -37,6 +36,14 @@ public class MainActivity extends Activity {
 
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, LocalVideoActivity.class));
+
+            }
+        });
+
+        findViewById(R.id.btnExpandListView).setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, LocalVideoExpandActivity.class));
 
             }
         });

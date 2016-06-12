@@ -8,7 +8,10 @@
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="com.huawei.android.launcher.permission.WRITE_SETTINGS" />
-    <uses-feature android:name="android.hardware.camera" android:required="false" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
 
     <application
         android:allowBackup="true"
@@ -29,7 +32,8 @@
         <activity
             android:name=".TestActivity"
             android:label="@string/title_activity_test" />
-        <activity android:name=".LocalVideoActivity"></activity>
+        <activity android:name=".LocalVideoActivity" />
+        <activity android:name=".LocalVideoExpandActivity"></activity>
     </application>
 
 </manifest>
