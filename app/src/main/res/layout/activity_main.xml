@@ -128,12 +128,20 @@
             android:text="复杂列表离线录制" >
         </Button>
 
-        <Button
+        <Button style="@style/ButtonStyle"
             android:id="@+id/btnExpandListView"
             android:layout_width="105dp"
             android:layout_height="40dp"
             android:layout_gravity="center_horizontal"
             android:text="展开列表离线录制" >
+        </Button>
+
+        <Button
+            android:id="@+id/btnTestHttpConn"
+            android:layout_width="105dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:text="测试HTTP请求" >
         </Button>
     </LinearLayout>
 

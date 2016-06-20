@@ -13,9 +13,22 @@
     </style>
 
     <!-- Application theme. -->
-    <style name="AppTheme" parent="AppBaseTheme">
+    <style name="AppTheme" parent="android:Theme.NoTitleBar">
         <item name="android:windowTitleSize">40dp</item>
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+
+    <style  name="TextViewStyle1">
+        <item name="android:textColor">@android:color/holo_red_light</item>
+        <item name="android:textSize">40sp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">200dp</item>
+        <item name="android:background">#ffff00ff</item>
+        <item name="android:gravity">center_horizontal</item>
+    </style>
+
+    <style name="ButtonStyle" parent="AppBaseTheme" >
+        <item name="android:textColor">@color/blue</item>
     </style>
 
 </resources>

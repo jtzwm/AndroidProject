@@ -7,7 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.Button;
 import android.widget.ExpandableListView;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -34,6 +36,13 @@ public class LocalVideoExpandActivity extends Activity {
         mainlistview.setAdapter(new MyAdapter());
     }
 
+    public final class ViewHolder{
+
+        public TextView title;
+
+        public Button viewBtn;
+    }
+
     class MyAdapter extends BaseExpandableListAdapter {
 
         //得到子item需要关联的数据
@@ -55,15 +64,36 @@ public class LocalVideoExpandActivity extends Activity {
                                  boolean isLastChild, View convertView, ViewGroup parent) {
             String key = LocalVideoExpandActivity.this.parent.get(groupPosition);
             String info = map.get(key).get(childPosition);
-            if (convertView == null) {
+/*            if (convertView == null) {
                 LayoutInflater inflater = (LayoutInflater) LocalVideoExpandActivity.this
                         .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 convertView = inflater.inflate(R.layout.activity_local_video_expand_child, null);
+            }*/
+
+
+            ViewHolder holder = null;
+            if (convertView == null) {
+                holder=new ViewHolder();
+                LayoutInflater inflater = (LayoutInflater) LocalVideoExpandActivity.this
+                        .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                convertView = inflater.inflate(R.layout.activity_local_video_expand_child, null);
+
+                holder.title = (TextView)convertView.findViewById(R.id.second_textview);
+
+                holder.viewBtn = (Button)convertView.findViewById(R.id.second_textview_btn);
+                convertView.setTag(holder);
+            }else {
+                holder = (ViewHolder)convertView.getTag();
             }
-            TextView tv = (TextView) convertView
+            holder.title.setText(info);
+            holder.viewBtn.setText("开始上传");
+/*            TextView tv = (TextView) convertView
                     .findViewById(R.id.second_textview);
             tv.setText(info);
-            return tv;
+
+            Button btn=(Button)convertView.findViewById(R.id.second_textview_btn);
+            btn.setText("上传");*/
+            return convertView;
         }
 
         //获取当前父item下的子item的个数
@@ -126,16 +156,16 @@ public class LocalVideoExpandActivity extends Activity {
         List<String> list1 = new ArrayList<String>();
         list1.add("视频长度13秒");
         list1.add("视频长度13秒");
-        map.put("parent1", list1);
+        map.put("朱巍明", list1);
 
         List<String> list2 = new ArrayList<String>();
-        list1.add("视频长度23秒");
-        list1.add("视频长度23秒");
-        map.put("parent2", list2);
+        list2.add("视频长度23秒");
+        list2.add("视频长度23秒");
+        map.put("黄瑞庆", list2);
 
         List<String> list3 = new ArrayList<String>();
-        list1.add("视频长度33秒");
-        map.put("parent3", list3);
+        list3.add("视频长度33秒");
+        map.put("刘天亮", list3);
 
     }
 }

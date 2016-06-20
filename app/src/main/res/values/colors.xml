@@ -8,6 +8,8 @@
     <color name="trans_white">#20ffffff</color>
     <color name="trans">#00000000</color>
     <color name="blue">#cc33b5e5</color>
-    
+    <color name="background_light">#f62727</color>
+    <color name="bright_foreground_light">#afa4a4</color>
+
 </resources>
     
