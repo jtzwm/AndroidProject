@@ -33,7 +33,8 @@
             android:name=".TestActivity"
             android:label="@string/title_activity_test" />
         <activity android:name=".LocalVideoActivity" />
-        <activity android:name=".LocalVideoExpandActivity"></activity>
+        <activity android:name=".LocalVideoExpandActivity" />
+        <activity android:name=".TestHttpConnActivity"></activity>
     </application>
 
 </manifest>
