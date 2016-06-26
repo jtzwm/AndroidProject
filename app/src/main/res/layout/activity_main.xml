@@ -143,6 +143,14 @@
             android:layout_gravity="center_horizontal"
             android:text="测试HTTP请求" >
         </Button>
+
+        <Button
+            android:id="@+id/btnTaobaoIndex"
+            android:layout_width="105dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:text="模拟淘宝首页布局" >
+        </Button>
     </LinearLayout>
 
 </RelativeLayout>

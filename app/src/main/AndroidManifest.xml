@@ -34,7 +34,8 @@
             android:label="@string/title_activity_test" />
         <activity android:name=".LocalVideoActivity" />
         <activity android:name=".LocalVideoExpandActivity" />
-        <activity android:name=".TestHttpConnActivity"></activity>
+        <activity android:name=".TestHttpConnActivity" />
+        <activity android:name=".TaobaoIndexPage"></activity>
     </application>
 
 </manifest>
