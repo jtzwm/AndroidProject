@@ -35,7 +35,8 @@
         <activity android:name=".LocalVideoActivity" />
         <activity android:name=".LocalVideoExpandActivity" />
         <activity android:name=".TestHttpConnActivity" />
-        <activity android:name=".TaobaoIndexPage"></activity>
+        <activity android:name=".TaobaoIndexPage" />
+        <activity android:name=".VideoRecorderActivity"></activity>
     </application>
 
 </manifest>

@@ -76,6 +76,7 @@ public class LocalVideoActivity extends ListActivity {
         public TextView title;
         public TextView info;
         public Button viewBtn;
+        public Button viewBtnSDK;
     }
 
     public class MyAdapter extends BaseAdapter {
@@ -111,6 +112,7 @@ public class LocalVideoActivity extends ListActivity {
                 holder.title = (TextView)convertView.findViewById(R.id.title);
                 holder.info = (TextView)convertView.findViewById(R.id.info);
                 holder.viewBtn = (Button)convertView.findViewById(R.id.view_btn);
+                holder.viewBtnSDK = (Button)convertView.findViewById(R.id.view_btn_sdk);
                 convertView.setTag(holder);
             }else {
                 holder = (ViewHolder)convertView.getTag();
@@ -122,12 +124,25 @@ public class LocalVideoActivity extends ListActivity {
             holder.viewBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    //通过intent调用activity
                     startVideo();
+                }
+            });
+            holder.viewBtnSDK.setOnClickListener(new View.OnClickListener(){
+
+                @Override
+                public void onClick(View v) {
+                    //通过sdk直接调用摄像头
+                    startVideoBySDK();
                 }
             });
             return convertView;
         }
 
+    }
+
+    private void startVideoBySDK(){
+        startActivity(new Intent(LocalVideoActivity.this, VideoRecorderActivity.class));
     }
 
     private void startVideo(){
