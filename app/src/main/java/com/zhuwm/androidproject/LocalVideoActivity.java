@@ -77,6 +77,8 @@ public class LocalVideoActivity extends ListActivity {
         public TextView info;
         public Button viewBtn;
         public Button viewBtnSDK;
+        public Button viewBtnSDK2Camera;
+
     }
 
     public class MyAdapter extends BaseAdapter {
@@ -113,13 +115,14 @@ public class LocalVideoActivity extends ListActivity {
                 holder.info = (TextView)convertView.findViewById(R.id.info);
                 holder.viewBtn = (Button)convertView.findViewById(R.id.view_btn);
                 holder.viewBtnSDK = (Button)convertView.findViewById(R.id.view_btn_sdk);
+                holder.viewBtnSDK2Camera = (Button)convertView.findViewById(R.id.view_btn_sdk_2camera);
                 convertView.setTag(holder);
             }else {
                 holder = (ViewHolder)convertView.getTag();
             }
             holder.img.setBackgroundResource((Integer)mData.get(position).get("img"));
             holder.title.setText((String)mData.get(position).get("title"));
-            holder.info.setText((String)mData.get(position).get("info"));
+            //holder.info.setText((String)mData.get(position).get("info"));
 
             holder.viewBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -133,7 +136,16 @@ public class LocalVideoActivity extends ListActivity {
                 @Override
                 public void onClick(View v) {
                     //通过sdk直接调用摄像头
-                    startVideoBySDK();
+                    startVideoBySDK(1);
+                }
+            });
+
+            holder.viewBtnSDK2Camera.setOnClickListener(new View.OnClickListener(){
+
+                @Override
+                public void onClick(View v) {
+                    //通过sdk直接调用摄像头
+                    startVideoBySDK(2);
                 }
             });
             return convertView;
@@ -141,8 +153,10 @@ public class LocalVideoActivity extends ListActivity {
 
     }
 
-    private void startVideoBySDK(){
-        startActivity(new Intent(LocalVideoActivity.this, VideoRecorderActivity.class));
+    private void startVideoBySDK(int cameraNumbers){
+        Intent intent =new Intent(LocalVideoActivity.this, VideoRecorderActivity.class);
+        intent.putExtra("cameraNumbers",cameraNumbers);
+        startActivity(intent);
     }
 
     private void startVideo(){
