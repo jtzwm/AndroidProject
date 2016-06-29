@@ -34,7 +34,7 @@ public class WebViewActivity extends Activity {
         Log.d(TAG,"+++++++在onCreate方法中");
         initWebView();
         //showProgressDialog("正在加载数据，请稍后...");
-        webView.loadUrl("http://192.168.3.71:8080/h5test/index.do");
+        webView.loadUrl("http://192.168.3.71:8080/h5test/f7/index.do");
 
     }
 

@@ -38,6 +38,7 @@ public class VideoRecorderActivity extends Activity {
             preview1.addView(mPreview1);
 
             int para_cameranumbers=getIntent().getIntExtra("cameraNumbers",0);
+            Log.d(TAG,"===传入的intent的参数为：cameraNumbers="+para_cameranumbers);
             if(para_cameranumbers==2){
                 Log.d(TAG,"启动两个摄像头");
                 //显示预览画面
@@ -61,6 +62,8 @@ public class VideoRecorderActivity extends Activity {
             c = Camera.open(cameraId);//试图获取Camera实例
         } catch (Exception e) {
             //摄像头不可用（正被占用或不存在）
+            Log.e(TAG,"获取摄像头时出错，cameraId="+cameraId);
+            e.printStackTrace();
         }
         return c;//不可用则返回null
     }
@@ -86,15 +89,13 @@ public class VideoRecorderActivity extends Activity {
     }
 
     @Override
-    protected void onStop() {
-
-        super.onStop();
-        Log.d(TAG,"onStop，释放摄像头");
-        if (mCamera1!=null){
-            mCamera1.release();
-        }
-        if(mCamera2!=null){
-            mCamera2.release();
-        }
+    protected void onDestroy() {
+        super.onDestroy();
     }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
 }

@@ -135,7 +135,7 @@ public class LocalVideoActivity extends ListActivity {
 
                 @Override
                 public void onClick(View v) {
-                    //通过sdk直接调用摄像头
+                    //通过sdk直接调用摄像头。参数只能传1，如果传2、原生sdk不支持的
                     startVideoBySDK(1);
                 }
             });
@@ -145,12 +145,16 @@ public class LocalVideoActivity extends ListActivity {
                 @Override
                 public void onClick(View v) {
                     //通过sdk直接调用摄像头
-                    startVideoBySDK(2);
+                    startSamsungCarema();
                 }
             });
             return convertView;
         }
 
+    }
+
+    private void startSamsungCarema(){
+        startActivity(new Intent(LocalVideoActivity.this,SamsungCameraActivity.class));
     }
 
     private void startVideoBySDK(int cameraNumbers){
