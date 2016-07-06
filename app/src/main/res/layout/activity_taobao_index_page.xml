@@ -3,62 +3,235 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.zhuwm.androidproject.TaobaoIndexPageActivity"
-    android:orientation="vertical">
+    tools:context="com.zhuwm.androidproject.TaobaoIndexPageActivity">
 
-
+    <!-- 搜索区-->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="70px"
-        android:background="#e9e6e6">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="这里放一个图片"/>
+        android:layout_height="120px"
+        android:background="#e9e6e6"
+        android:gravity="center_vertical">
 
-        <TextView
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:textColor="#434343"
-            android:text="这里是搜索输入框"
-            android:layout_width="wrap_content"
-            android:textAlignment="center" />
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="92px"
+            android:layout_height="match_parent"
+            android:src="@drawable/andoridlogo" />
 
-        <TextView
+        <EditText
+            android:id="@+id/editText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="这里放按钮"/>
+            android:layout_weight="1" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/button_search" />
 
     </LinearLayout>
 
-
+    <!--广告区-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="200px"
-        android:background="#818181"
-        android:layout_weight="1">
+        android:background="#818181">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:text="广告区"/>
+            android:text="广告区" />
 
 
     </LinearLayout>
 
+    <!-- 栏目区-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#e1e1e1"
-        android:layout_weight="4">
-        <TextView
+        android:layout_weight="1"
+        android:background="#e9baba">
+
+        <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="分类导航区"/>
+            android:layout_height="match_parent">
+
+            <TableRow android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/andoridlogo"></ImageView>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/andoridlogo"></ImageView>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/andoridlogo"></ImageView>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/andoridlogo"></ImageView>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/andoridlogo"></ImageView>
+            </TableRow>
+
+            <TableRow android:gravity="center_horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="栏目"
+                    android:textColor="#020202"></TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="栏目"
+                    android:textColor="#020202"></TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="栏目"
+                    android:textColor="#020202"></TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="栏目"
+                    android:textColor="#020202"></TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="栏目"
+                    android:textColor="#020202"></TextView>
+            </TableRow>
+
+
+            <TableRow android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/andoridlogo"></ImageView>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/andoridlogo"></ImageView>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/andoridlogo"></ImageView>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/andoridlogo"></ImageView>
+            </TableRow>
+
+        </TableLayout>
     </LinearLayout>
+
+    <!-- 分类导航-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="#e1e1e1">
+
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TextViewStyle1"
+                android:layout_width="122dp"
+                android:layout_height="match_parent"
+                android:text="左边">
+
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:orientation="vertical"
+            android:layout_alignParentEnd="true"
+            android:layout_toEndOf="@+id/linearLayout">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    style="@style/TextViewStyle1"
+                    android:layout_width="233dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:text="右上"></TextView>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    style="@style/TextViewStyle1"
+                    android:layout_width="231dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:text="右下"></TextView>
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </RelativeLayout>
 
 </LinearLayout>
